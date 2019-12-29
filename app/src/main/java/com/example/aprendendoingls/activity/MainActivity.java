@@ -3,7 +3,10 @@ package com.example.aprendendoingls.activity;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
 
+import android.media.MediaPlayer;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.ImageView;
 
 import com.example.aprendendoingls.R;
 import com.example.aprendendoingls.fragment.AnimaisFragment;
@@ -17,6 +20,8 @@ public class MainActivity extends AppCompatActivity {
 
     private ViewPager viewPager;
     private SmartTabLayout smartTabLayout;
+    private ImageView imageCao;
+    private MediaPlayer mediaPlayer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         //Configurar ActionBar
-//        getSupportActionBar().setTitle("YouTube");
+        getSupportActionBar().setTitle("Aprenda Inglês");
         getSupportActionBar().setElevation(0);
 
         viewPager = findViewById(R.id.viewPager);
@@ -41,5 +46,10 @@ public class MainActivity extends AppCompatActivity {
 
         viewPager.setAdapter( adapter );
         smartTabLayout.setViewPager( viewPager );
+    }
+
+    private void somDog(View view){
+        mediaPlayer = MediaPlayer.create(getApplicationContext(), R.raw.dog);
+        mediaPlayer.start();
     }
 }
